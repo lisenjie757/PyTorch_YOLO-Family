@@ -1,4 +1,4 @@
-# Update: 2022-05-31
+# forked from repo
 Recently, I have released an anchor-free YOLO, inspired by YOLOX & YOLOv7:
 
 https://github.com/yjh0410/FreeYOLO

@@ -1,9 +1,9 @@
 python train.py \
         --cuda \
-        -d coco \
+        -d voc \
         -m yolov2 \
-        --root /home/jxk/object-detection/dataset \
-        --batch_size 16 \
+        --root ../data/ \
+        --batch_size 8 \
         --lr 0.001 \
         --img_size 640 \
         --max_epoch 200 \
@@ -11,5 +11,7 @@ python train.py \
         --multi_scale \
         --multi_scale_range 10 20 \
         --multi_anchor \
-        --ema
-        
+        --ema \
+        --num_gpu 2 \
+        --distributed \
+        --sybn        

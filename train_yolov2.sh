@@ -1,17 +1,18 @@
-python train.py \
-        --cuda \
-        -d voc \
-        -m yolov2 \
-        --root ../data/ \
-        --batch_size 8 \
-        --lr 0.001 \
-        --img_size 640 \
-        --max_epoch 200 \
-        --lr_epoch 100 150 \
-        --multi_scale \
-        --multi_scale_range 10 20 \
-        --multi_anchor \
-        --ema \
-        --num_gpu 2 \
-        --distributed \
-        --sybn        
+python -m torch.distributed.run --nproc_per_node=2 train.py \
+                                                --cuda \
+                                                -d voc \
+                                                -m yolov2 \
+                                                --root ../data/ \
+                                                --num_workers 15 \
+                                                --batch_size 8 \
+                                                --lr 0.001 \
+                                                --img_size 640 \
+                                                --max_epoch 200 \
+                                                --lr_epoch 100 150 \
+                                                --multi_scale \
+                                                --multi_scale_range 10 20 \
+                                                --multi_anchor \
+                                                --ema \
+                                                --distributed \
+                                                --num_gpu 2 \
+                                                --sybn        
